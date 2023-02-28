@@ -1,0 +1,38 @@
+{
+  "name": "@appolo/clickhouse",
+  "version": "8.0.1",
+  "description": "",
+  "private": false,
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shmoop207/appolo-module-clickhouse.git"
+  },
+  "dependencies": {
+    "@appolo/engine": "^8.0.23",
+    "@appolo/logger": "^8.0.5",
+    "@appolo/utils": "^8.0.15",
+    "@clickhouse/client": "^0.0.12"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.18",
+    "@types/sinon": "^10.0.13",
+    "@types/sinon-chai": "^3.2.9",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^15.0.1",
+    "sinon-chai": "^3.7.0",
+    "typescript": "^4.9.4"
+  },
+  "author": {
+    "name": "Roman Svichar",
+    "email": "roman.svichar@gmail.com"
+  },
+  "license": "MIT"
+}
