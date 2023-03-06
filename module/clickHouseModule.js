@@ -21,9 +21,6 @@ let ClickHouseModule = ClickHouseModule_1 = class ClickHouseModule extends engin
         return [{ id: this.moduleOptions.id, type: clickHouseProvider_1.ClickHouseProvider }];
     }
     beforeModuleInitialize() {
-        process.on("exit", () => {
-            this.clickHouseProvider.close().catch();
-        });
     }
     async beforeReset() {
         await this.clickHouseProvider.close();

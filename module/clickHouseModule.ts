@@ -22,9 +22,7 @@ export class ClickHouseModule extends Module<IOptions> {
     }
 
     public beforeModuleInitialize() {
-        process.on("exit", () => {
-            this.clickHouseProvider.close().catch()
-        })
+
     }
 
     public async beforeReset() {
