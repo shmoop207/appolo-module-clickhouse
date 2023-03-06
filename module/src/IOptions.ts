@@ -1,5 +1,4 @@
-import {Connection} from "@clickhouse/client";
-import {ConnectionParams} from "@clickhouse/client/dist/connection/connection";
+import {ClickHouseClientConfigOptions, Connection} from "@clickhouse/client";
 
 
 export interface IOptions {
@@ -9,6 +8,5 @@ export interface IOptions {
     password: string
 
     checkConnection?: boolean
-    requestTimeout?: number
-    config: Partial<ConnectionParams>
+    config: Partial<ClickHouseClientConfigOptions>
 }
