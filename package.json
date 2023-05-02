@@ -1,6 +1,6 @@
 {
   "name": "@appolo/clickhouse",
-  "version": "8.0.3",
+  "version": "8.0.4",
   "description": "",
   "private": false,
   "main": "index.js",
@@ -16,7 +16,7 @@
     "@appolo/engine": "^8.0.23",
     "@appolo/logger": "^8.0.5",
     "@appolo/utils": "^8.0.15",
-    "@clickhouse/client": "^0.0.12"
+    "@clickhouse/client": "^0.0.15"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
