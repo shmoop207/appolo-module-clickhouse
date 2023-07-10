@@ -11,7 +11,12 @@ let ClickHouseProvider = class ClickHouseProvider {
         return this._client;
     }
     async exec(params) {
-        await this._client.exec(params);
+        let result = await this._client.exec(params);
+        return result;
+    }
+    async command(params) {
+        let result = await this._client.command(params);
+        return result;
     }
     async query(params) {
         let query = await this._client.query(params);
