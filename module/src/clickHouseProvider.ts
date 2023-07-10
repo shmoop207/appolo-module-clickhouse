@@ -3,8 +3,9 @@ import {ClickHouseClient} from "@clickhouse/client";
 import {clearInterval} from "timers";
 import {ILogger} from '@appolo/logger';
 import {ClickHouseConnection} from "./clickHouseConnection";
-import {ExecParams, InsertParams, QueryParams} from "@clickhouse/client/dist/client";
+import {CommandParams, CommandResult, ExecParams, InsertParams, QueryParams} from "@clickhouse/client/dist/client";
 import {Readable} from "stream";
+import {ExecResult} from "@clickhouse/client/dist/connection";
 
 
 @define()
@@ -22,8 +23,16 @@ export class ClickHouseProvider {
         return this._client
     }
 
-    public async exec(params: ExecParams): Promise<void> {
-        await this._client.exec(params)
+    public async exec(params: ExecParams): Promise<ExecResult> {
+        let result = await this._client.exec(params)
+        return result
+
+    }
+
+    public async command(params: CommandParams): Promise<CommandResult> {
+        let result = await this._client.command(params)
+
+        return result;
     }
 
     public async query<T>(params: QueryParams): Promise<T> {
