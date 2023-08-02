@@ -3,9 +3,8 @@ import {ClickHouseClient} from "@clickhouse/client";
 import {clearInterval} from "timers";
 import {ILogger} from '@appolo/logger';
 import {ClickHouseConnection} from "./clickHouseConnection";
-import {CommandParams, CommandResult, ExecParams, InsertParams, QueryParams} from "@clickhouse/client/dist/client";
+import {CommandParams, CommandResult, ExecParams, InsertParams, QueryParams, ExecResult} from "@clickhouse/client";
 import {Readable} from "stream";
-import {ExecResult} from "@clickhouse/client/dist/connection";
 
 
 @define()
@@ -13,7 +12,7 @@ import {ExecResult} from "@clickhouse/client/dist/connection";
 export class ClickHouseProvider {
 
     @inject() protected logger: ILogger;
-    @inject("clickHouseConnection") protected _client: ClickHouseClient;
+    @inject("clickHouseConnection") protected _client: ClickHouseClient<Readable>;
 
     public close(): Promise<void> {
         return this._client.close();
@@ -23,7 +22,7 @@ export class ClickHouseProvider {
         return this._client
     }
 
-    public async exec(params: ExecParams): Promise<ExecResult> {
+    public async exec(params: ExecParams): Promise<ExecResult<Readable>> {
         let result = await this._client.exec(params)
         return result
 
@@ -47,7 +46,7 @@ export class ClickHouseProvider {
         return query.stream()
     }
 
-    public async insert(params: InsertParams): Promise<void> {
+    public async insert(params: InsertParams<Readable>): Promise<void> {
         await this._client.insert(params)
     }
 }

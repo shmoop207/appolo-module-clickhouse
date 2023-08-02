@@ -1,4 +1,4 @@
-import {ClickHouseClientConfigOptions, Connection} from "@clickhouse/client";
+import {ClickHouseClientConfigOptions} from "@clickhouse/client";
 
 
 export interface IOptions {
@@ -8,5 +8,5 @@ export interface IOptions {
     password: string
 
     checkConnection?: boolean
-    config: Partial<ClickHouseClientConfigOptions>
+    config: Partial<ClickHouseClientConfigOptions<any>>
 }
