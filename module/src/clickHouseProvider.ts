@@ -18,7 +18,7 @@ export class ClickHouseProvider {
         return this._client.close();
     }
 
-    public get client(): ClickHouseClient {
+    public get client(): ClickHouseClient<Readable> {
         return this._client
     }
 
